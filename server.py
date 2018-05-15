@@ -12,7 +12,7 @@ while msg != b'stop':
 	msg = msg.encode()
 	client_co.send(msg)
 	recv = client_co.recv(1024)
-	recv = recv.decode()
+	recv = recv.decode(encoding="utf-8", errors="ignore")
 	print(recv)
 print("Console > session close")
 client_co.close()

